@@ -14,7 +14,7 @@ class TreeTemplate:
         self.maxBranches = maxBranches
         self.branchAmount = branchDensity
 
-        self.idontknowwhatthisnameisgonnabeatall = buffed
+        self.buffed = buffed
         self.width = width
         self.leafSize = leafSize
 
@@ -53,7 +53,7 @@ class Tree:
         gen = self.generation
 
         chance = random.random()
-        exp = 1 / gen if self.template.idontknowwhatthisnameisgonnabeatall else gen
+        exp = 1 / gen if self.template.buffed else gen
         chance = math.pow(chance, exp)
 
         return min(math.floor(chance / self.template.branchAmount), 3)
@@ -102,7 +102,7 @@ class Main:
                         quit()
 
             self.win.fill((0, 0, 0))
-            plant.draw(self.win, pos=pygame.Vector2(x=300, y=720), size=250)
+            plant.draw(self.win, pos=pygame.Vector2(x=500, y=720), size=250)
             pygame.display.update()
 
 
